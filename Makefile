@@ -1,12 +1,19 @@
-all: hello calculadora
+ASM = nasm
+AFLAGS = -f elf32
+LD = ld
+LDFLAGS = -m elf_i386
+SRC = src
+BIN = bin
 
-hello: hello.asm
-	nasm -f elf32 hello.asm -o hello.o
-	ld -m elf_i386 hello.o -o hello
+all: $(BIN)/main
 
-calculadora: calculadora.asm
-	nasm -f elf32 calculadora.asm -o calculadora.o
-	ld -m elf_i386 calculadora.o -o calculadora
+$(BIN)/main: $(SRC)/main.asm $(SRC)/math.asm $(SRC)/string.asm $(SRC)/io.asm
+	@mkdir -p $(BIN)
+	$(ASM) $(AFLAGS) -I$(SRC)/ $(SRC)/main.asm -o $(BIN)/main.o
+	$(LD) $(LDFLAGS) $(BIN)/main.o -o $(BIN)/main
+
+run: all
+	$(BIN)/main
 
 clean:
-	rm -f *.o hello calculadora
+	rm -rf $(BIN)
