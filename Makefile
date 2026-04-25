@@ -7,9 +7,11 @@ BIN = bin
 
 all: $(BIN)/main
 
-SRCS = $(SRC)/main.asm $(SRC)/math.asm $(SRC)/string.asm $(SRC)/io.asm \
-       $(SRC)/bits.asm $(SRC)/convert.asm $(SRC)/stack.asm \
-       $(SRC)/memory.asm $(SRC)/sort.asm
+SRCS = $(SRC)/main.asm $(SRC)/math.asm $(SRC)/math2.asm \
+       $(SRC)/string.asm $(SRC)/io.asm \
+       $(SRC)/bits.asm $(SRC)/convert.asm \
+       $(SRC)/stack.asm $(SRC)/queue.asm \
+       $(SRC)/memory.asm $(SRC)/sort.asm $(SRC)/crypto.asm
 
 $(BIN)/main: $(SRCS)
 	@mkdir -p $(BIN)

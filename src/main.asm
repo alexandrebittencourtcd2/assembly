@@ -1,11 +1,14 @@
 %include "io.asm"
 %include "math.asm"
+%include "math2.asm"
 %include "string.asm"
 %include "bits.asm"
 %include "convert.asm"
 %include "stack.asm"
+%include "queue.asm"
 %include "memory.asm"
 %include "sort.asm"
+%include "crypto.asm"
 
 section .data
     banner      db "=== Processador de Dados x86 ===", 0xA, 0
